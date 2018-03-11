@@ -3,7 +3,7 @@ Kaggle "Digit Recognizer" using Caffe
 
 ```
 python convert_data.py -k 10
-sh train_lenet.sh
+sh train_net.sh
 python predict.py > result.csv
 ```
 
