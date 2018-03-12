@@ -9,4 +9,7 @@ sh train_net.sh
 python predict.py > result.csv
 ```
 
-References: https://github.com/slaypni/Kaggle-DigitRecognizer
+References: 
+1. <a href="https://github.com/slaypni/Kaggle-DigitRecognizer"> Caffe with LeNet on MNIST for Kaggle: slaypni/Kaggle-DigitRecognizer</a>
+2. <a href="https://github.com/shicai/MobileNet-Caffe">MobileNet-Caffe: shicai/MobileNet-Caffe</a>
+3. <a href="https://github.com/yonghenglh6/DepthwiseConvolution">Depthwise Convolutional Layer yonghenglh6/DepthwiseConvolution</a>
