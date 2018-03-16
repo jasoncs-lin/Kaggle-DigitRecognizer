@@ -1,7 +1,7 @@
 Kaggle "Digit Recognizer" using Caffe (only GPU)
 =========================================
 
-This accuracy on Kaggle PL is about 0.94542
+This accuracy on Kaggle PL is about 0.99342
 
 ```
 python convert_data.py -k 10
