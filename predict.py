@@ -6,7 +6,7 @@ import caffe
 
 test_csv_path = './data/test.csv'
 model_path = 'deploy.prototxt'
-pretrained_path = 'snapshot/lenet_iter_74000.caffemodel'
+pretrained_path = 'snapshot/lenet_iter_282000.caffemodel'
 
 caffe.set_mode_gpu()
 caffe.set_device(0)

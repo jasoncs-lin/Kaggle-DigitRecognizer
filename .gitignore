@@ -2,3 +2,7 @@
 snapshot/
 data/
 *.csv
+backup/
+snapshot_Backup/
+train_val_old.prototxt
+

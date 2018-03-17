@@ -4,7 +4,7 @@ import csv
 import numpy as np
 import caffe
 
-test_csv_path = '../data/test.csv'
+test_csv_path = './data/test.csv'
 model_path = 'deploy.prototxt'
 
 #----K5-----START
@@ -26,13 +26,11 @@ K7_pretrained3_path = 'Shapshot_backup/K7/lenet_iter_151000.caffemodel'  #Val=99
 #----K7-----END
 
 #----K10-----START
-K10_pretrained1_path = 'Shapshot_backup/K10/lenet_iter_203000.caffemodel'  #Val=99.48
-K10_pretrained2_path = 'Shapshot_backup/K10/lenet_iter_230000.caffemodel'  #Val=99.47
-K10_pretrained3_path = 'Shapshot_backup/K10/lenet_iter_215000.caffemodel'  #Val=99.46
-K10_pretrained4_path = 'Shapshot_backup/K10/lenet_iter_208000.caffemodel'
-K10_pretrained5_path = 'Shapshot_backup/K10/lenet_iter_222000.caffemodel'
-K10_pretrained6_path = 'Shapshot_backup/K10/lenet_iter_213000.caffemodel'
-K10_pretrained7_path = 'Shapshot_backup/K10/lenet_iter_242000.caffemodel'
+K10_pretrained1_path = 'snapshot/lenet_iter_282000.caffemodel'  #Val=99.60
+K10_pretrained2_path = 'snapshot/lenet_iter_258000.caffemodel'  #Val=99.61
+K10_pretrained3_path = 'snapshot/lenet_iter_246000.caffemodel'  #Val=99.62
+K10_pretrained4_path = 'snapshot/lenet_iter_292000.caffemodel'  #Val=99.59
+K10_pretrained5_path = 'snapshot/lenet_iter_274000.caffemodel'  #Val=99.59
 #----K10-----END
 
 
@@ -65,12 +63,12 @@ caffe.set_mode_gpu()
 caffe.set_device(0)
 
 
-clf1 = caffe.Classifier(model_path, K5_pretrained1_path, image_dims=(28, 28))
-clf2 = caffe.Classifier(model_path, K7_pretrained1_path, image_dims=(28, 28))
-clf3 = caffe.Classifier(model_path, K10_pretrained1_path, image_dims=(28, 28))
-clf4 = caffe.Classifier(model_path, K15_pretrained1_path, image_dims=(28, 28))
-clf5 = caffe.Classifier(model_path, K20_pretrained1_path, image_dims=(28, 28))
-clf6 = caffe.Classifier(model_path, K25_pretrained1_path, image_dims=(28, 28))
+clf1 = caffe.Classifier(model_path, K10_pretrained1_path, image_dims=(28, 28))
+clf2 = caffe.Classifier(model_path, K10_pretrained2_path, image_dims=(28, 28))
+clf3 = caffe.Classifier(model_path, K10_pretrained3_path, image_dims=(28, 28))
+clf4 = caffe.Classifier(model_path, K10_pretrained4_path, image_dims=(28, 28))
+clf5 = caffe.Classifier(model_path, K10_pretrained5_path, image_dims=(28, 28))
+#clf6 = caffe.Classifier(model_path, K25_pretrained1_path, image_dims=(28, 28))
 #clf5 = caffe.Classifier(model_path, K10_pretrained2_path, image_dims=(28, 28))
 #clf6 = caffe.Classifier(model_path, K10_pretrained3_path, image_dims=(28, 28))
 #clf7 = caffe.Classifier(model_path, K15_pretrained1_path, image_dims=(28, 28))
@@ -87,13 +85,13 @@ with open(test_csv_path) as f:
     y3=clf3.predict(X, oversample=False)
     y4=clf4.predict(X, oversample=False)
     y5=clf5.predict(X, oversample=False)
-    y6=clf6.predict(X, oversample=False)
     '''
+    y6=clf6.predict(X, oversample=False)
     y7=clf7.predict(X, oversample=False)
     y8=clf8.predict(X, oversample=False)
     y9=clf9.predict(X, oversample=False)
     '''
-    y=y1+y2+y3+y4+y5+y6#+y7+y8+y9
+    y=y1+y2+y3+y4+y5#+y6#+y7+y8+y9
     for i, y_en in enumerate(y):
         print(i+1, np.argmax(y_en), sep=',')
         
