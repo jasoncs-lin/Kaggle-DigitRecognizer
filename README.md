@@ -8,6 +8,7 @@ python convert_data.py -k 10
 sh train_net.sh
 python predict.py > result.csv
 ```
+![Alt text](https://github.com/jasoncs-lin/Kaggle-DigitRecognizer/blob/master/top10.jpg)
 
 References: 
 1. <a href="https://github.com/slaypni/Kaggle-DigitRecognizer"> Caffe with LeNet on MNIST for Kaggle: slaypni/Kaggle-DigitRecognizer</a>
