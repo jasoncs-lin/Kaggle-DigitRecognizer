@@ -27,21 +27,21 @@ K7_pretrained3_path = 'Shapshot_backup/K7/lenet_iter_151000.caffemodel'  #Val=99
 
 #----K10-----START
 K10_pretrained1_path = 'snapshot/lenet_iter_282000.caffemodel'  #Val=99.60
-K10_pretrained2_path = 'snapshot/lenet_iter_258000.caffemodel'  #Val=99.61
-K10_pretrained3_path = 'snapshot/lenet_iter_246000.caffemodel'  #Val=99.62
-K10_pretrained4_path = 'snapshot/lenet_iter_292000.caffemodel'  #Val=99.59
-K10_pretrained5_path = 'snapshot/lenet_iter_274000.caffemodel'  #Val=99.59
+K10_pretrained2_path = 'snapshot/lenet_iter_292000.caffemodel'  #Val=99.61
+#K10_pretrained3_path = 'snapshot/lenet_iter_246000.caffemodel'  #Val=99.62
+#K10_pretrained4_path = 'snapshot/lenet_iter_292000.caffemodel'  #Val=99.59
+#K10_pretrained5_path = 'snapshot/lenet_iter_274000.caffemodel'  #Val=99.59
 #----K10-----END
 
 
 #----K15-----START
-K15_pretrained1_path = 'Shapshot_backup/K15/lenet_iter_60000.caffemodel'   #Val=99.59
-K15_pretrained2_path = 'Shapshot_backup/K15/lenet_iter_214000.caffemodel'  #Val=99.55
-K15_pretrained3_path = 'Shapshot_backup/K15/lenet_iter_183000.caffemodel'  #Val=99.54
-K15_pretrained4_path = 'Shapshot_backup/K15/lenet_iter_106000.caffemodel'  #Val=99.53
-K15_pretrained5_path = 'Shapshot_backup/K15/lenet_iter_102000.caffemodel'  #Val=99.52
-K15_pretrained6_path = 'Shapshot_backup/K15/lenet_iter_104000.caffemodel'  #Val=99.51
-K15_pretrained7_path = 'Shapshot_backup/K15/lenet_iter_186000.caffemodel'  #Val=99.51
+K15_pretrained1_path = 'snapshot/lenet_iter_107000.caffemodel'   #Val=99.53
+#K15_pretrained2_path = 'Shapshot_backup/K15/lenet_iter_214000.caffemodel'  #Val=99.55
+#K15_pretrained3_path = 'Shapshot_backup/K15/lenet_iter_183000.caffemodel'  #Val=99.54
+#K15_pretrained4_path = 'Shapshot_backup/K15/lenet_iter_106000.caffemodel'  #Val=99.53
+#K15_pretrained5_path = 'Shapshot_backup/K15/lenet_iter_102000.caffemodel'  #Val=99.52
+#K15_pretrained6_path = 'Shapshot_backup/K15/lenet_iter_104000.caffemodel'  #Val=99.51
+#K15_pretrained7_path = 'Shapshot_backup/K15/lenet_iter_186000.caffemodel'  #Val=99.51
 #----K15-----END
 
 #----K20-----START
@@ -65,9 +65,9 @@ caffe.set_device(0)
 
 clf1 = caffe.Classifier(model_path, K10_pretrained1_path, image_dims=(28, 28))
 clf2 = caffe.Classifier(model_path, K10_pretrained2_path, image_dims=(28, 28))
-clf3 = caffe.Classifier(model_path, K10_pretrained3_path, image_dims=(28, 28))
-clf4 = caffe.Classifier(model_path, K10_pretrained4_path, image_dims=(28, 28))
-clf5 = caffe.Classifier(model_path, K10_pretrained5_path, image_dims=(28, 28))
+clf3 = caffe.Classifier(model_path, K15_pretrained1_path, image_dims=(28, 28))
+#clf4 = caffe.Classifier(model_path, K10_pretrained4_path, image_dims=(28, 28))
+#clf5 = caffe.Classifier(model_path, K10_pretrained5_path, image_dims=(28, 28))
 #clf6 = caffe.Classifier(model_path, K25_pretrained1_path, image_dims=(28, 28))
 #clf5 = caffe.Classifier(model_path, K10_pretrained2_path, image_dims=(28, 28))
 #clf6 = caffe.Classifier(model_path, K10_pretrained3_path, image_dims=(28, 28))
@@ -83,15 +83,15 @@ with open(test_csv_path) as f:
     y1=clf1.predict(X, oversample=False)
     y2=clf2.predict(X, oversample=False)
     y3=clf3.predict(X, oversample=False)
-    y4=clf4.predict(X, oversample=False)
-    y5=clf5.predict(X, oversample=False)
+    #y4=clf4.predict(X, oversample=False)
+    #y5=clf5.predict(X, oversample=False)
     '''
     y6=clf6.predict(X, oversample=False)
     y7=clf7.predict(X, oversample=False)
     y8=clf8.predict(X, oversample=False)
     y9=clf9.predict(X, oversample=False)
     '''
-    y=y1+y2+y3+y4+y5#+y6#+y7+y8+y9
+    y=y1+y2+y3#+y4+y5#+y6#+y7+y8+y9
     for i, y_en in enumerate(y):
         print(i+1, np.argmax(y_en), sep=',')
         
